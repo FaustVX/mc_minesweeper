@@ -1,0 +1,114 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "first configuration",
+            "command": "${workspaceFolder}\\gradlew",
+            "windows": {
+                "command": "${workspaceFolder}\\gradlew.bat"
+            },
+            "type": "shell",
+            "args": [
+                "${input:generate_args_ide}"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build",
+            "command": "${workspaceFolder}\\gradlew",
+            "windows": {
+                "command": "${workspaceFolder}\\gradlew.bat"
+            },
+            "type": "shell",
+            "args": [
+                "build"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "git fixup",
+            "command": "git",
+            "type": "shell",
+            "args": [
+                "rebase",
+                "--interactive",
+                "--autosquash",
+                "--autostash",
+                "${input:git_ref}"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "git push",
+            "command": "git push ${input:git_push_force}",
+            "type": "shell",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "git push tags",
+            "command": "git push --tags ${input:git_push_force}",
+            "type": "shell",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": [],
+            "dependsOn":[
+                "git push"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "generate_args_ide",
+            "type": "pickString",
+            "options": [
+                {
+                    "label": "VS code",
+                    "value": "genVSCodeRuns"
+                },
+                {
+                    "label": "Eclipse",
+                    "value": "genEclipseRuns"
+                },
+                {
+                    "label": "IntelliJ",
+                    "value": "genIntellijRuns"
+                },
+            ],
+            "description": "Select IDE"
+        },
+        {
+            "id": "git_ref",
+            "type": "promptString",
+            "default": "--root",
+            "description": "git ref to rebase into"
+        },
+        {
+            "id": "git_push_force",
+            "type": "pickString",
+            "options": [
+                {
+                    "label": "normal",
+                    "value": ""
+                },
+                {
+                    "label": "force",
+                    "value": "--force"
+                }
+            ],
+            "description": "push with force"
+        }
+    ]
+}
