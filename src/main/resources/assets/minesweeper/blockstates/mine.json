@@ -1,0 +1,40 @@
+{
+    "variants": {
+      "flagged=true": {
+        "model": "minesweeper:block/flagged"
+      },
+      "flagged=false,revealed=false": {
+        "model": "minesweeper:block/unrevealed"
+      },
+      "flagged=false,revealed=true,mine=true": {
+        "model": "minesweeper:block/mine"
+      },
+      "flagged=false,revealed=true,mine=false,mines=0": {
+        "model": "minesweeper:block/mines0"
+      },
+      "flagged=false,revealed=true,mine=false,mines=1": {
+        "model": "minesweeper:block/mines1"
+      },
+      "flagged=false,revealed=true,mine=false,mines=2": {
+        "model": "minesweeper:block/mines2"
+      },
+      "flagged=false,revealed=true,mine=false,mines=3": {
+        "model": "minesweeper:block/mines3"
+      },
+      "flagged=false,revealed=true,mine=false,mines=4": {
+        "model": "minesweeper:block/mines4"
+      },
+      "flagged=false,revealed=true,mine=false,mines=5": {
+        "model": "minesweeper:block/mines5"
+      },
+      "flagged=false,revealed=true,mine=false,mines=6": {
+        "model": "minesweeper:block/mines6"
+      },
+      "flagged=false,revealed=true,mine=false,mines=7": {
+        "model": "minesweeper:block/mines7"
+      },
+      "flagged=false,revealed=true,mine=false,mines=8": {
+        "model": "minesweeper:block/mines8"
+      }
+    }
+  }
